@@ -1,6 +1,15 @@
-# 1) Arrêter et supprimer les conteneurs + volumes
+# 0) Arrêter et supprimer les conteneurs + volumes
 Write-Host "docker compose down -v"
 docker compose down -v
+
+# 1) Copier .env.example vers .env si .env n'existe pas
+if (-Not (Test-Path ".env")) {
+  Write-Host "Copie de .env.example vers .env"
+  Copy-Item ".env.example" ".env"
+}
+else {
+  Write-Host ".env déjà présent, aucune copie nécessaire"
+}
 
 # 2) Démarrer les conteneurs en arrière-plan
 Write-Host "docker compose up -d"
@@ -20,12 +29,12 @@ function lara {
 
 $profileContent = Get-Content $PROFILE -Raw -ErrorAction SilentlyContinue
 if ($profileContent -notmatch "function lara") {
-    Write-Host "Ajout de la fonction 'lara' à ton profil PowerShell"
-    $laraFunction | Add-Content -Path $PROFILE
-    . $PROFILE
+  Write-Host "Ajout de la fonction 'lara' à ton profil PowerShell"
+  $laraFunction | Add-Content -Path $PROFILE
+  . $PROFILE
 }
 else {
-    Write-Host "La fonction 'lara' existe déjà dans ton profil"
+  Write-Host "La fonction 'lara' existe déjà dans ton profil"
 }
 
 # 4 à 8) Commandes Laravel dans le conteneur
