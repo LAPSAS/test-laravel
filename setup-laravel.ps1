@@ -10,8 +10,8 @@ if (-Not (Test-Path ".env")) {
 else {
   Write-Host ".env déjà présent, aucune copie nécessaire"
 }
-
-# 2) Démarrer les conteneurs en arrière-plan
+# 2) Démarrer les conteneurs en arrière-plan (avec installation préalable de sail via container composer)
+docker run --rm -v "${PWD}:/app" -w /app composer require laravel/sail --dev
 Write-Host "docker compose up -d"
 docker compose up -d
 
