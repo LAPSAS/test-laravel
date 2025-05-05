@@ -37,7 +37,7 @@ else {
   Write-Host "La fonction 'lara' existe déjà dans ton profil"
 }
 
-# 4 à 8) Commandes Laravel dans le conteneur
+# 4 à 7) Commandes Laravel dans le conteneur
 Write-Host "lara composer install"
 lara composer install
 
@@ -50,5 +50,6 @@ lara npm install
 Write-Host "lara npm run build"
 lara npm run build
 
-Write-Host "lara php artisan migrate"
-lara php artisan migrate
+# 8) Initiation de la base de données + seeding
+Write-Host "lara php artisan migrate:fresh --seed"
+lara php artisan migrate:fresh --seed
