@@ -17,7 +17,7 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->words(3, true), // Generate a name with 3 words
+            'name' => $this->faker->catchPhrase(), // Use catchPhrase for product-like names
             'description' => $this->faker->sentence(),
             'price' => $this->faker->randomFloat(2, 10, 1000), // Price between 10.00 and 1000.00
             'stock' => $this->faker->numberBetween(0, 100),
