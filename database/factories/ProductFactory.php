@@ -16,10 +16,21 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
+        // Generate a base price (integer)
+        $basePrice = $this->faker->numberBetween(10, 1000);
+
+        // Randomly decide to keep it whole or make it .90
+        $finalPrice = $this->faker->boolean(75) // 75% chance of .90 price
+            ? $basePrice - 0.10
+            : $basePrice;
+
+        // Ensure price is not below a minimum threshold after adjustment (e.g., not less than 0)
+        $finalPrice = max(0.10, $finalPrice); // Ensure price is at least 0.10
+
         return [
             'name' => $this->faker->catchPhrase(), // Use catchPhrase for product-like names
             'description' => $this->faker->sentence(),
-            'price' => $this->faker->randomFloat(2, 10, 1000), // Price between 10.00 and 1000.00
+            'price' => $finalPrice, // New price logic
             'stock' => $this->faker->numberBetween(0, 100),
         ];
     }

@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->text('address')->nullable();
             $table->timestamps();
+
+            $table->index('last_name'); // Add index for searching/sorting by last name
         });
     }
 

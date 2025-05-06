@@ -18,6 +18,9 @@ return new class extends Migration
             $table->decimal('total_amount', 10, 2);
             $table->string('status')->default('pending'); // e.g., pending, processing, completed, cancelled
             $table->timestamps();
+
+            // Foreign key index is added automatically by constrained()
+            $table->index('order_date'); // Add index for sorting/filtering by order date
         });
     }
 

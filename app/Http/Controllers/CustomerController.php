@@ -12,7 +12,11 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customers = Customer::orderBy('last_name')->orderBy('first_name')->paginate(20);
+        $customers = Customer::withCount('orders')
+            ->withSum('orders', 'total_amount')
+            ->orderBy('last_name')
+            ->orderBy('first_name')
+            ->paginate(20);
 
         return view('customers.index', compact('customers'));
     }

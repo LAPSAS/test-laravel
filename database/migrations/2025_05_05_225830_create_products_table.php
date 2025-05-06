@@ -18,6 +18,8 @@ return new class extends Migration
             $table->decimal('price', 8, 2);
             $table->integer('stock')->default(0);
             $table->timestamps();
+
+            $table->index('name'); // Add index for searching/sorting by name
         });
     }
 
