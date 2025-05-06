@@ -8,7 +8,7 @@
         <p><strong>Order ID:</strong> {{ $order->id }}</p>
         <p><strong>Order Date:</strong> {{ $order->order_date->format('Y-m-d H:i:s') }}</p>
         <p><strong>Status:</strong> {{ ucfirst($order->status) }}</p>
-        <p><strong>Total Amount:</strong> ${{ number_format($order->total_amount, 2) }}</p>
+        <p><strong>Total Amount:</strong> {{ number_format($order->total_amount, 2,',',' ') }} €</p>
         <p><strong>Customer:</strong>
             @if ($order->customer)
                 <a href="{{ route('customers.show', $order->customer) }}">{{ $order->customer->first_name }} {{ $order->customer->last_name }}</a> (ID: {{ $order->customer->id }})
@@ -41,8 +41,8 @@
                                 @endif
                             </td>
                             <td>{{ $detail->quantity }}</td>
-                            <td>${{ number_format($detail->price_at_time, 2) }}</td>
-                            <td>${{ number_format($detail->total_line_amount, 2) }}</td>
+                            <td>{{ number_format($detail->price_at_time, 2,',',' ') }} €</td>
+                            <td>{{ number_format($detail->total_line_amount, 2,',',' ') }} €</td>
                         </tr>
                     @endforeach
                 </tbody>

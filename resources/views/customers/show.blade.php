@@ -31,7 +31,7 @@
                             <td>{{ $order->id }}</td>
                             <td>{{ $order->order_date->format('Y-m-d H:i') }}</td>
                             <td>{{ ucfirst($order->status) }}</td>
-                            <td>${{ number_format($order->total_amount, 2) }}</td>
+                            <td>{{ number_format($order->total_amount, 2, ',', ' ') }} €</td>
                             <td>
                                 <a href="{{ route('orders.show', $order) }}">View Order</a>
                             </td>
