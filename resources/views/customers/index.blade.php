@@ -25,7 +25,7 @@
                     <td>{{ $customer->orders_count }}</td> {{-- Display Order Count --}}
                     <td>{{ number_format($customer->orders_sum_total_amount ?? 0, 2,',',' ') }} €</td> {{-- Display Total Spent --}}
                     <td>
-                        <a href="{{ route('customers.show', $customer) }}">View</a>
+                        <a href="{{ route('customers.show', $customer) }}" class="text-blue-600 hover:underline">View</a>
                     </td>
                 </tr>
             @empty

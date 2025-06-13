@@ -13,5 +13,5 @@
         <p><strong>Updated At:</strong> {{ $product->updated_at->format('Y-m-d H:i:s') }}</p>
     </div>
 
-    <a href="{{ route('products.index') }}">Back to Products List</a>
+    <a href="{{ route('products.index') }}" class="text-blue-600 hover:underline">Back to Products List</a>
 @endsection

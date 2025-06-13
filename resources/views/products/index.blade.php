@@ -21,7 +21,7 @@
                     <td>{{ number_format($product->price, 2,',',' ') }} €</td>
                     <td>{{ $product->stock }}</td>
                     <td>
-                        <a href="{{ route('products.show', $product) }}">View</a>
+                        <a href="{{ route('products.show', $product) }}" class="text-blue-600 hover:underline">View</a>
                     </td>
                 </tr>
             @empty

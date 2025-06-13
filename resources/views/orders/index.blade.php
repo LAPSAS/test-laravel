@@ -29,7 +29,7 @@
                     <td>{{ ucfirst($order->status) }}</td>
                     <td>{{ number_format($order->total_amount, 2, ',',' ') }}</td>
                     <td>
-                        <a href="{{ route('orders.show', $order) }}">View Details</a>
+                        <a href="{{ route('orders.show', $order) }}" class="text-blue-600 hover:underline">View Details</a>
                     </td>
                 </tr>
             @empty

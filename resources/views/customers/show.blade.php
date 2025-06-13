@@ -33,7 +33,7 @@
                             <td>{{ ucfirst($order->status) }}</td>
                             <td>{{ number_format($order->total_amount, 2, ',', ' ') }} €</td>
                             <td>
-                                <a href="{{ route('orders.show', $order) }}">View Order</a>
+                                <a href="{{ route('orders.show', $order) }}" class="text-blue-600 hover:underline">View Order</a>
                             </td>
                         </tr>
                     @endforeach
@@ -44,5 +44,5 @@
         @endif
     </div>
 
-    <a href="{{ route('customers.index') }}">Back to Customers List</a>
+    <a href="{{ route('customers.index') }}" class="text-blue-600 hover:underline">Back to Customers List</a>
 @endsection

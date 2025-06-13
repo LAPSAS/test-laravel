@@ -35,7 +35,7 @@
                         <tr>
                             <td>
                                 @if ($detail->product)
-                                    <a href="{{ route('products.show', $detail->product) }}">{{ $detail->product->name }}</a> (ID: {{ $detail->product->id }})
+                                    <a href="{{ route('products.show', $detail->product) }}" class="text-blue-600 hover:underline">{{ $detail->product->name }}</a> (ID: {{ $detail->product->id }})
                                 @else
                                     Product Not Found (ID: {{ $detail->product_id }})
                                 @endif
@@ -52,5 +52,5 @@
         @endif
     </div>
 
-    <a href="{{ route('orders.index') }}">Back to Orders List</a>
+    <a href="{{ route('orders.index') }}" class="text-blue-600 hover:underline">Back to Orders List</a>
 @endsection
